@@ -1,0 +1,5 @@
+elasticsearch
+elasticsearch-dsl
+flask
+requests
+pandas

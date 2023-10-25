@@ -1,0 +1,105 @@
+{
+    "settings": {
+        "index": {
+            "number_of_shards": 1,
+            "number_of_replicas": 1
+        },
+        "analysis": {
+            "analyzer": {
+                "tamil_analyzer_syn_sw_st": {
+                    "type": "custom",
+                    "tokenizer": "standard",
+                    "filter": [
+                        "custom_synonym",
+                        "custom_stopword",
+                        "custom_stemmer"
+                    ]
+                }
+            },
+            "filter": {
+                "custom_stopword": {
+                    "type": "stop",
+                    "stopwords_path": "analyze/stopwords.txt"
+                },
+                "custom_stemmer": {
+                    "type": "stemmer_override",
+                    "rules_path": "analyze/stem.txt"
+                },
+                "custom_synonym": {
+                    "type": "synonym",
+                    "synonyms_path": "analyze/synonyms.txt"
+                }
+
+            }}},
+    "mappings": {
+        "properties": {
+            "Poem": {
+                "type": "text",
+                "analyzer": "tamil_analyzer_syn_sw_st",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "Author": {
+                "type": "text",
+                "analyzer": "tamil_analyzer_syn_sw_st",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "Poetic Opening": {
+                "type": "text",
+                "analyzer": "tamil_analyzer_syn_sw_st",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "Lines": {
+                "type": "text",
+                "analyzer": "tamil_analyzer_syn_sw_st",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "Metaphorical Name": {
+                "type": "text",
+                "analyzer": "tamil_analyzer_syn_sw_st",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "meaning": {
+                "type": "text",
+                "analyzer": "tamil_analyzer_syn_sw_st",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "year": {
+                "type": "integer"
+            },
+            "Count of Metaphor":{
+                "type":"integer"
+            }
+        }
+    }
+    
+}
